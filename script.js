@@ -1,5 +1,11 @@
 function searchStudent(){
     let username = document.getElementById("username").value;
+
+    if(username.trim() === ""){
+        alert("Please enter a HackerRank username.");
+        return;
+    }
+    
     let profile = {
         username: username,
         badges: 18,
@@ -29,10 +35,6 @@ function searchStudent(){
         <p>${skill.name} ${"⭐".repeat(skill.stars)}</p>
         `;
     }
-    if(username.trim() === ""){
-        alert("Please enter a HackerRank username.");
-        return;
-    }
     document.getElementById("result").innerHTML  = `
         <h2>${profile.username}</h2>
         ${skillsHTML}
@@ -43,3 +45,11 @@ function searchStudent(){
         <p><strong>Problems Solved: </strong>${profile.problemsSolved}</p>
    `;
 }
+fetch("profile.json")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.username);
+        console.log(data.badges);
+        console.log(data.problemsSolved);
+        console.log(data.skills);
+    });

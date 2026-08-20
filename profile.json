@@ -1,0 +1,23 @@
+{
+    "username": "john123",
+    "badges": 18,
+    "problemsSolved": 256,
+    "skills": [
+        {
+            "name": "Python",
+            "stars": 5
+        },
+        {
+            "name": "Java",
+            "stars": 4
+        },
+        {
+            "name":"SQL",
+            "stars": 2
+        },
+        {
+            "name":"C",
+            "stars":5
+        }
+    ]
+}
