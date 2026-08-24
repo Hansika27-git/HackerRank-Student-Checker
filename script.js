@@ -1,34 +1,14 @@
-function searchStudent(){
+async function searchStudent(){
     let username = document.getElementById("username").value;
 
     if(username.trim() === ""){
         alert("Please enter a HackerRank username.");
         return;
     }
-    
-    let profile = {
-        username: username,
-        badges: 18,
-        problemsSolved: 256,
-        skills: [
-            {
-                name: "Python",
-                stars: 5
-            },
-            {
-                name: "Java",
-                stars: 3
-            },
-            {
-                name: "SQL",
-                stars: 2
-            },
-            {
-                name: "C",
-                stars: 5
-            }
-        ]
-    };
+    let response = await fetch("profile.json");
+    let profile = await response.json();
+
+
     let skillsHTML = "";
     for(let skill of profile.skills){
         skillsHTML += ` 
@@ -45,11 +25,3 @@ function searchStudent(){
         <p><strong>Problems Solved: </strong>${profile.problemsSolved}</p>
    `;
 }
-fetch("profile.json")
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.username);
-        console.log(data.badges);
-        console.log(data.problemsSolved);
-        console.log(data.skills);
-    });
