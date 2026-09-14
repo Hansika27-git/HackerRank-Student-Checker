@@ -7,7 +7,7 @@ async function searchStudent(){
         return;
     }
     console.log("Username:", username);
-    console.log("URL:", `http://localhost:3000/api/student/${username}`);
+    console.log("URL:", `http://localhost:4000/api/student/${username}`);
 
     let response = await fetch(`http://localhost:4000/api/student/${username}`);
 
